@@ -1,73 +1,103 @@
-# React + TypeScript + Vite
+## Recruitment Platform Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive recruitment platform frontend built with React, TypeScript, Vite, MUI, Tailwind CSS, TanStack Query, React Hook Form, Axios, and React Toastify.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🚀 Features
+- Registration, Login, and Profile screens
+- Responsive, minimalist UI with MUI and Tailwind
+- Toast notifications for feedback
+- API integration with backend (Node.js/Express/MongoDB)
+- Environment-based API domain switching
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🛠️ Tools & Libraries
+- **React**: UI library
+- **TypeScript**: Type safety
+- **Vite**: Fast dev/build tool
+- **MUI**: Material UI components
+- **Tailwind CSS**: Utility-first CSS for layout/responsiveness
+- **TanStack Query**: Data fetching and caching
+- **React Hook Form**: Form management
+- **Axios**: HTTP requests
+- **React Toastify**: Toast notifications
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### ⚡ Quick Setup
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+#### 1. Clone the repository
+```sh
+git clone https://github.com/your-username/colbin-assignment-frontend.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+#### 2. Install dependencies
+```sh
+npm install
 ```
+
+#### 3. Set up environment variables
+Create a `.env` file in the root of `frontend/`:
+```env
+# Local development
+VITE_API_BASE_URL=http://localhost:3000/api/users
+
+# Production (uncomment and set your domain)
+# VITE_API_BASE_URL=https://your-production-domain.com/api/users
+```
+
+#### 4. Start the development server
+```sh
+npm run dev
+```
+
+#### 5. Build for production
+```sh
+npm run build
+```
+
+#### 6. Preview production build
+```sh
+npm run preview
+```
+
+---
+
+### 📁 Project Structure
+```
+frontend/
+  .env                # API base URL config
+  src/
+    pages/            # Home, Register, Login, Profile screens
+    components/       # Navbar, shared UI
+    services/         # API calls (auth.ts)
+    interfaces/       # TypeScript interfaces
+    constants/        # API base URL
+    utils/            # Error handler
+    assets/           # Images/icons
+    index.css         # Tailwind styles
+    App.tsx           # Main app component
+    routes.tsx        # Routing
+```
+
+---
+
+### 📝 Notes
+- Make sure your backend is running and CORS is enabled for the frontend domain.
+- Update `.env` for your production API domain when deploying.
+- All API calls use the domain from `.env` for easy switching.
+
+---
+
+### 💡 Useful Commands
+- `npm run dev` — Start development server
+- `npm run build` — Build for production
+- `npm run preview` — Preview production build
+- `npm install <package>` — Add new dependency
+
+---
+
+### 🤝 Backend
+See the backend README for setup and API details.
