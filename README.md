@@ -1,4 +1,4 @@
-## Recruitment Platform Frontend
+## Colbin assignment Frontend
 
 A modern, responsive recruitment platform frontend built with React, TypeScript, Vite, MUI, Tailwind CSS, TanStack Query, React Hook Form, Axios, and React Toastify.
 
