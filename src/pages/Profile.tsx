@@ -6,6 +6,7 @@ import type { UserProfile } from "../interfaces/user";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { toast } from "react-toastify";
 
 const Profile: React.FC = () => {
   const navigate = useNavigate();
@@ -119,7 +120,10 @@ const Profile: React.FC = () => {
           className="w-full font-bold border-gray-900 text-gray-900"
           onClick={() => {
             localStorage.removeItem("token");
-            navigate("/login");
+            toast.success("Signed out successfully.");
+            setTimeout(() => {
+              navigate("/login");
+            }, 700);
           }}
         >
           Sign Out

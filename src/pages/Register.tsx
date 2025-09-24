@@ -18,7 +18,9 @@ const Register: React.FC = () => {
     mutationFn: registerUser,
     onSuccess: () => {
       toast.success("Registration successful! Please login.");
-      navigate("/login");
+      setTimeout(() => {
+        navigate("/login");
+      }, 700);
     },
     onError: (error: unknown) => {
       toast.error(getErrorMessage(error));

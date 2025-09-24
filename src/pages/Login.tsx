@@ -25,7 +25,9 @@ const Login: React.FC = () => {
     },
     onSuccess: () => {
       toast.success("Login successful!");
-      navigate("/profile");
+      setTimeout(() => {
+        navigate("/profile");
+      }, 700);
     },
     onError: (error: unknown) => {
       toast.error(getErrorMessage(error));

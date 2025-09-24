@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import React from "react";
 import { Link } from "react-router-dom";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Navbar: React.FC = () => {
   return (
@@ -17,11 +18,7 @@ const Navbar: React.FC = () => {
       </div>
       <div>
         <Link to="/profile" className="flex items-center">
-          <img
-            src="/assets/react.svg"
-            alt="Profile"
-            className="w-8 h-8 rounded-full border border-gray-300 hover:border-gray-900 transition duration-150"
-          />
+          <AccountCircleIcon/>
         </Link>
       </div>
     </nav>
