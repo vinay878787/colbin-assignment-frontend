@@ -2,14 +2,10 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-interface UserProfile {
-  name: string;
-  email: string;
-  phone?: string;
-  website?: string;
-  createdAt?: string;
-}
+import type { UserProfile } from "../interfaces/user";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 const Profile: React.FC = () => {
   const navigate = useNavigate();
@@ -28,25 +24,31 @@ const Profile: React.FC = () => {
 
   if (!token) {
     return (
-      <div>
-        <h2>Unauthorized</h2>
-        <button onClick={() => navigate("/login")}>Go to Login</button>
-      </div>
+      <Box className="max-w-md mx-auto mt-10 p-8 bg-white rounded shadow text-center">
+        <Typography variant="h5" color="error" fontWeight={700} gutterBottom>
+          Unauthorized
+        </Typography>
+        <Button variant="contained" color="primary" onClick={() => navigate("/login")}>Go to Login</Button>
+      </Box>
     );
   }
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading profile.</div>;
+  if (isLoading) return <Box className="text-center mt-10"><Typography>Loading...</Typography></Box>;
+  if (error) return <Box className="text-center mt-10"><Typography color="error">Error loading profile.</Typography></Box>;
 
   return (
-    <div className="profile-container">
-      <h2>Profile</h2>
-      <p><strong>Name:</strong> {data?.name}</p>
-      <p><strong>Email:</strong> {data?.email}</p>
-      {data?.phone && <p><strong>Phone:</strong> {data.phone}</p>}
-      {data?.website && <p><strong>Website:</strong> {data.website}</p>}
-      <p><strong>Joined:</strong> {data?.createdAt && new Date(data.createdAt).toLocaleDateString()}</p>
-    </div>
+    <Box className="max-w-md mx-auto mt-10 p-8 bg-white rounded shadow">
+      <Typography variant="h4" fontWeight={700} color="primary" className="mb-6 text-center">
+        Profile
+      </Typography>
+      <Box className="space-y-2">
+        <Typography><strong>Name:</strong> {data?.name}</Typography>
+        <Typography><strong>Email:</strong> {data?.email}</Typography>
+        {data?.phone && <Typography><strong>Phone:</strong> {data.phone}</Typography>}
+        {data?.website && <Typography><strong>Website:</strong> {data.website}</Typography>}
+        <Typography><strong>Joined:</strong> {data?.createdAt && new Date(data.createdAt).toLocaleDateString()}</Typography>
+      </Box>
+    </Box>
   );
 };
 
