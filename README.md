@@ -1,5 +1,10 @@
 ## Recruitment Platform Frontend
 
+NOTE: USE PRODUCTION ONLY IF YOU WERE NOT ABLE TO SETUP LOCALLY. THIS IS A FREE TIER SERVICE . IT MIGHT BREAK ANYTIME SOON WITHIN A WEEK . IF YOU USE PRODUCTION , YOU DONT NEED TO SETUP DB
+DELOYED PRODUCTION FRONTEND LINK : https://colbin-assignment-frontend.vercel.app/
+
+DEPLOYED PRODUCTION BACKEND LINK : https://colbin-assignment-backend.onrender.com
+
 A modern, responsive recruitment platform frontend built with React, TypeScript, Vite, MUI, Tailwind CSS, TanStack Query, React Hook Form, Axios, and React Toastify.
 
 ---
@@ -39,13 +44,15 @@ npm install
 ```
 
 #### 3. Set up environment variables
+NOTE: PLEASE USE PRODUCTION LINK ONLY IF YOU ARE NOT ABLE TO RUN LOCALLY . THIS IS A FREE TIER SERVICE . IT MIGHT BREAK IN COUPLE OF DAYS . IF YOU USE PRODUCTION LINK , YOU DONT NEED TO SETUP DATABASE.
+
 Create a `.env` file in the root of `frontend/`:
 ```env
 # Local development
 VITE_API_BASE_URL=http://localhost:3000/api/users
-
+              OR
 # Production (uncomment and set your domain)
-# VITE_API_BASE_URL=https://your-production-domain.com/api/users
+# VITE_API_BASE_URL=https://colbin-assignment-backend.onrender.com/api/users
 ```
 
 #### 4. Start the development server
