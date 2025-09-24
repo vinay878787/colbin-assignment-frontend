@@ -26,26 +26,28 @@ const Register: React.FC = () => {
   });
 
   return (
-    <Box className="max-w-md mx-auto mt-10 p-8 bg-white rounded shadow">
-      <ToastContainer position="top-center" autoClose={3000} />
-      <h2 className="text-2xl font-bold mb-6 text-center text-blue-700">Register</h2>
-      <form onSubmit={handleSubmit((data) => mutation.mutate(data))} className="space-y-4">
-        <Box>
-          <input {...register("name", { required: true })} className="w-full p-2 border rounded" placeholder="Name" />
-          {errors.name && <span className="text-red-500">Name is required</span>}
-        </Box>
-        <Box>
-          <input {...register("email", { required: true })} className="w-full p-2 border rounded" placeholder="Email" type="email" />
-          {errors.email && <span className="text-red-500">Email is required</span>}
-        </Box>
-        <Box>
-          <input {...register("password", { required: true })} className="w-full p-2 border rounded" placeholder="Password" type="password" />
-          {errors.password && <span className="text-red-500">Password is required</span>}
-        </Box>
-        <Button type="submit" variant="contained" color="primary" disabled={mutation.isPending} fullWidth className="bg-blue-600 hover:bg-blue-700">
-          Register
-        </Button>
-      </form>
+    <Box className="min-h-screen flex items-center justify-center px-2 sm:px-4" style={{background: "linear-gradient(135deg, #18181b 0%, #fff 100%)"}}>
+      <Box className="w-full max-w-md sm:max-w-sm md:max-w-md p-4 sm:p-8 rounded shadow-lg" style={{background: "#fff"}}>
+        <ToastContainer position="top-center" autoClose={3000} />
+        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-gray-900">Register</h2>
+        <form onSubmit={handleSubmit((data) => mutation.mutate(data))} className="space-y-4">
+          <Box>
+            <input {...register("name", { required: true })} className="w-full p-2 sm:p-3 border rounded bg-transparent text-gray-900 font-semibold" placeholder="Name" />
+            {errors.name && <span className="text-red-500 font-semibold">Name is required</span>}
+          </Box>
+          <Box>
+            <input {...register("email", { required: true })} className="w-full p-2 sm:p-3 border rounded bg-transparent text-gray-900 font-semibold" placeholder="Email" type="email" />
+            {errors.email && <span className="text-red-500 font-semibold">Email is required</span>}
+          </Box>
+          <Box>
+            <input {...register("password", { required: true })} className="w-full p-2 sm:p-3 border rounded bg-transparent text-gray-900 font-semibold" placeholder="Password" type="password" />
+            {errors.password && <span className="text-red-500 font-semibold">Password is required</span>}
+          </Box>
+          <Button type="submit" variant="contained" color="primary" disabled={mutation.isPending} fullWidth className="bg-gray-900 hover:bg-gray-700 text-white font-bold">
+            Register
+          </Button>
+        </form>
+      </Box>
     </Box>
   );
 };

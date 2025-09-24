@@ -33,36 +33,42 @@ const Login: React.FC = () => {
   });
 
   return (
-    <Box className="max-w-md mx-auto mt-10 p-8 bg-white rounded shadow">
-      <ToastContainer position="top-center" autoClose={3000} />
-      <Typography variant="h4" fontWeight={700} color="primary" className="mb-6 text-center">
-        Login
-      </Typography>
-      <form onSubmit={handleSubmit((data) => mutation.mutate(data))} className="space-y-4">
-        <Stack spacing={2}>
-          <TextField
-            {...register("email", { required: true })}
-            label="Email"
-            type="email"
-            variant="outlined"
-            fullWidth
-            error={!!errors.email}
-            helperText={errors.email ? "Email is required" : ""}
-          />
-          <TextField
-            {...register("password", { required: true })}
-            label="Password"
-            type="password"
-            variant="outlined"
-            fullWidth
-            error={!!errors.password}
-            helperText={errors.password ? "Password is required" : ""}
-          />
-          <Button type="submit" variant="contained" color="primary" disabled={mutation.isPending} fullWidth>
-            Login
-          </Button>
-        </Stack>
-      </form>
+    <Box className="min-h-screen flex items-center justify-center px-2 sm:px-4" style={{background: "linear-gradient(135deg, #18181b 0%, #fff 100%)"}}>
+      <Box className="w-full max-w-md sm:max-w-sm md:max-w-md p-4 sm:p-8 rounded shadow-lg" style={{background: "#fff"}}>
+        <ToastContainer position="top-center" autoClose={3000} />
+        <Typography variant="h4" fontWeight={700} className="mb-6 text-center text-gray-900 text-xl sm:text-2xl md:text-3xl">
+          Login
+        </Typography>
+        <form onSubmit={handleSubmit((data) => mutation.mutate(data))} className="space-y-4">
+          <Stack spacing={2}>
+            <TextField
+              {...register("email", { required: true })}
+              label="Email"
+              type="email"
+              variant="outlined"
+              fullWidth
+              error={!!errors.email}
+              helperText={errors.email ? "Email is required" : ""}
+              InputProps={{ className: "text-gray-900 font-semibold" }}
+              InputLabelProps={{ className: "text-gray-500" }}
+            />
+            <TextField
+              {...register("password", { required: true })}
+              label="Password"
+              type="password"
+              variant="outlined"
+              fullWidth
+              error={!!errors.password}
+              helperText={errors.password ? "Password is required" : ""}
+              InputProps={{ className: "text-gray-900 font-semibold" }}
+              InputLabelProps={{ className: "text-gray-500" }}
+            />
+            <Button type="submit" variant="contained" color="primary" disabled={mutation.isPending} fullWidth className="bg-gray-900 hover:bg-gray-700 text-white font-bold">
+              Login
+            </Button>
+          </Stack>
+        </form>
+      </Box>
     </Box>
   );
 };
